@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pastas Di Marco - Control de Ventas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+ <header class="header">
+    <div class="logo">
+        <img src="foto-marco.png" alt="Di Marco Logo" class="logo-img">
+        <div class="logo-text">
+            <h1></h1>
+            <p class="subtitle">Sistema profesional de control y contabilidad de ventas</p>
+        </div>
+    </div>
+</header>
+
+        <section class="metrics-grid">
+            <div class="metric-card revenue">
+                <div class="metric-icon">💰</div>
+                <div class="metric-info">
+                    <span class="metric-title">Ingresos Totales</span>
+                    <h3 id="total-revenue">$0.00</h3>
+                </div>
+            </div>
+            <div class="metric-card sales-count">
+                <div class="metric-icon">📦</div>
+                <div class="metric-info">
+                    <span class="metric-title">Unidades Vendidas</span>
+                    <h3 id="total-units">0</h3>
+                </div>
+            </div>
+            <div class="metric-card top-product">
+                <div class="metric-icon">⭐</div>
+                <div class="metric-info">
+                    <span class="metric-title">Producto Destacado</span>
+                    <h3 id="best-seller">-</h3>
+                </div>
+            </div>
+        </section>
+
+        <div class="main-grid">
+            <section class="card form-section">
+                <h2>Registrar Nueva Venta</h2>
+                <form id="sales-form">
+                    <div class="form-group">
+                        <label for="pasta-type">Tipo de Pasta</label>
+                        <input type="text" id="pasta-type" placeholder="Ej: Sorrentinos de Jamón y Queso" required autocomplete="off">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">Cantidad</label>
+                            <input type="number" id="quantity" min="1" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Precio Unitario ($)</label>
+                            <input type="number" id="price" min="0" step="0.01" placeholder="0.00" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <span>Registrar Venta</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    </button>
+                </form>
+            </section>
+
+            <section class="card history-section">
+                <div class="history-header">
+                    <h2>Historial de Ventas</h2>
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Buscar pasta...">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table id="sales-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Pasta</th>
+                                <th>Cant.</th>
+                                <th>P. Unit</th>
+                                <th>Total</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="sales-list">
+                            </tbody>
+                    </table>
+                    <div id="empty-state" class="empty-state hidden">
+                        <p>No hay ventas registradas aún.</p>
+                    </div>
+                </div>
+
+                <div class="history-footer">
+                    <button id="clear-btn" class="btn btn-outline-danger">Borrar Todo</button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
